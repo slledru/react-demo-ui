@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers/root-reducer'
 import Header from './components/header/header-container'
-import Login from './components/login/login-container'
+import TodoIndex from './components/todo/todo-container'
+import ProtectRoute from './components/protect-route'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
@@ -17,7 +18,7 @@ ReactDOM.render((
     <BrowserRouter>
       <div>
         <Header />
-        <Login />
+        <ProtectRoute />
       </div>
     </BrowserRouter>
   </Provider>
